@@ -1,5 +1,7 @@
 package com.algorightm.chapter2.sort;
 
+import com.sun.scenario.effect.Merge;
+
 /**
  * @author Xiao Han
  */
@@ -95,6 +97,25 @@ public class SortTest {
         assert isSorted(c);
         Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
         ShellSort.sort(test_char);
+        assert isSorted(test_char);
+    }
+
+    @org.junit.Test
+    public void mergeSortRecursion(){
+        Integer[] a = {2, 3, 1, 5, 6, 3};
+        MergeSort.sortRecursion(a);
+        Integer[] result = {1, 2, 3, 3, 5, 6};
+        show(a);
+        assert isEqual(a, result);
+        assert isSorted(a);
+        Integer[] b = {};
+        MergeSort.sortRecursion(b);
+        assert isSorted(b);
+        Integer[] c = {1};
+        ShellSort.sort(c);
+        assert isSorted(c);
+        Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        MergeSort.sortRecursion(test_char);
         assert isSorted(test_char);
     }
 }
