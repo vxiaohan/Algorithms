@@ -79,4 +79,22 @@ public class SortTest {
         BubbleSort.sort(c);
         assert isSorted(c);
     }
+
+    @org.junit.Test
+    public void shellSort() {
+        Integer[] a = {2, 3, 1, 5, 6, 3};
+        ShellSort.sort(a);
+        Integer[] result = {1, 2, 3, 3, 5, 6};
+        assert isEqual(a, result);
+        assert isSorted(a);
+        Integer[] b = {};
+        ShellSort.sort(b);
+        assert isSorted(b);
+        Integer[] c = {1};
+        ShellSort.sort(c);
+        assert isSorted(c);
+        Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        ShellSort.sort(test_char);
+        assert isSorted(test_char);
+    }
 }
