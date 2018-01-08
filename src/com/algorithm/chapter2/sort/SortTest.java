@@ -135,7 +135,7 @@ public class SortTest {
     }
 
     @org.junit.Test
-    public void quickSortNonRecursion() {
+    public void quickSortRecursion() {
         Integer[] a = {2, 3, 1, 5, 6, 3};
         QuickSort.sortRecursion(a);
         Integer[] result = {1, 2, 3, 3, 5, 6};
@@ -151,4 +151,23 @@ public class SortTest {
         QuickSort.sortRecursion(testChar);
         assert isSorted(testChar);
     }
+
+    @org.junit.Test
+    public void quickSortNonRecursion() {
+        Integer[] a = {2, 3, 1, 5, 6, 3};
+        QuickSort.sortNonRecursion(a);
+        Integer[] result = {1, 2, 3, 3, 5, 6};
+        assert isEqual(a, result);
+        assert isSorted(a);
+        Integer[] b = {};
+        QuickSort.sortNonRecursion(b);
+        assert isSorted(b);
+        Integer[] c = {1};
+        QuickSort.sortNonRecursion(c);
+        assert isSorted(c);
+        Character[] testChar = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        QuickSort.sortNonRecursion(testChar);
+        assert isSorted(testChar);
+    }
+
 }
