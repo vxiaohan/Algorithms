@@ -93,9 +93,9 @@ public class SortTest {
         Integer[] c = {1};
         ShellSort.sort(c);
         assert isSorted(c);
-        Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
-        ShellSort.sort(test_char);
-        assert isSorted(test_char);
+        Character[] testChar = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        ShellSort.sort(testChar);
+        assert isSorted(testChar);
     }
 
     @org.junit.Test
@@ -111,9 +111,9 @@ public class SortTest {
         Integer[] c = {1};
         MergeSort.sortRecursion(c);
         assert isSorted(c);
-        Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
-        MergeSort.sortRecursion(test_char);
-        assert isSorted(test_char);
+        Character[] testChar = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        MergeSort.sortRecursion(testChar);
+        assert isSorted(testChar);
     }
 
     @org.junit.Test
@@ -129,8 +129,26 @@ public class SortTest {
         Integer[] c = {1};
         MergeSort.sortNonRecursion(c);
         assert isSorted(c);
-        Character[] test_char = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
-        MergeSort.sortNonRecursion(test_char);
-        assert isSorted(test_char);
+        Character[] testChar = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        MergeSort.sortNonRecursion(testChar);
+        assert isSorted(testChar);
+    }
+
+    @org.junit.Test
+    public void quickSortNonRecursion() {
+        Integer[] a = {2, 3, 1, 5, 6, 3};
+        QuickSort.sortRecursion(a);
+        Integer[] result = {1, 2, 3, 3, 5, 6};
+        assert isEqual(a, result);
+        assert isSorted(a);
+        Integer[] b = {};
+        QuickSort.sortRecursion(b);
+        assert isSorted(b);
+        Integer[] c = {1};
+        QuickSort.sortRecursion(c);
+        assert isSorted(c);
+        Character[] testChar = {'E', 'A', 'S', 'Y', 'Q', 'U', 'E', 'S', 'T', 'I', 'O', 'N'};
+        QuickSort.sortRecursion(testChar);
+        assert isSorted(testChar);
     }
 }
