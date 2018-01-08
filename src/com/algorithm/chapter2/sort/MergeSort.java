@@ -8,7 +8,6 @@ public class MergeSort {
     }
 
     private static void sortMergeRecursion(Comparable[] data, int headIndex, int endIndex) {
-
         if (endIndex - headIndex <= 0) {
             return;
         }
@@ -21,10 +20,10 @@ public class MergeSort {
             }
         }
         int middleIndex = headIndex + (endIndex - headIndex) / 2;
-        if (middleIndex > endIndex){
+        if (middleIndex > endIndex) {
             middleIndex = endIndex;
         }
-        if (middleIndex < headIndex){
+        if (middleIndex < headIndex) {
             middleIndex = headIndex;
         }
         if (middleIndex - headIndex > 0) {
@@ -33,7 +32,24 @@ public class MergeSort {
         if (endIndex - middleIndex > 1) {
             sortMergeRecursion(data, middleIndex + 1, endIndex);
         }
+        merge(data, headIndex, middleIndex, endIndex);
+        return;
+    }
 
+    public static void sortNonRecursion(Comparable[] data) {
+        int length = data.length;
+        int subarraySize = 1;
+        for (subarraySize = 1; subarraySize < length; subarraySize += subarraySize) {
+            for (int i = 0; i < length - subarraySize; i += subarraySize + subarraySize) {
+                int headIndex = i;
+                int middleIndex = i + subarraySize - 1;
+                int endIndex = Math.min(i + subarraySize + subarraySize -1, length-1);
+                merge(data, headIndex, middleIndex, endIndex);
+            }
+        }
+    }
+
+    private static void merge(Comparable[] data, int headIndex, int middleIndex, int endIndex) {
         Comparable[] firstBuffer = new Comparable[middleIndex - headIndex + 1];
         Comparable[] secondBuffer = new Comparable[endIndex - middleIndex];
         for (int i = headIndex; i <= middleIndex; i++) {
@@ -63,6 +79,5 @@ public class MergeSort {
             }
             resultIndex++;
         }
-        return;
     }
 }
