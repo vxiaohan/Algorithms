@@ -1,6 +1,4 @@
-package com.algorightm.chapter2.sort;
-
-import com.sun.scenario.effect.Merge;
+package com.algorithm.chapter2.sort;
 
 /**
  * @author Xiao Han

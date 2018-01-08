@@ -1,4 +1,4 @@
-package com.algorightm.chapter2.sort;
+package com.algorithm.chapter2.sort;
 
 public class BubbleSort {
     public static void sort(Comparable[] data) {

@@ -1,4 +1,4 @@
-package com.algorightm.chapter2.sort;
+package com.algorithm.chapter2.sort;
 
 /**
  * @author Xiao Han

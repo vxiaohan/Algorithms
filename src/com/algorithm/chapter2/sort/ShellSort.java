@@ -1,4 +1,4 @@
-package com.algorightm.chapter2.sort;
+package com.algorithm.chapter2.sort;
 
 public class ShellSort {
     private static void exchange(Comparable[] data, int index_1, int index_2) {
