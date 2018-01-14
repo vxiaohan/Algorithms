@@ -1,4 +1,4 @@
-package com.algorithm.chapter2.searching;
+package com.algorithm.chapter3.searching;
 
 import java.util.Stack;
 
