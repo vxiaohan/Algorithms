@@ -149,6 +149,52 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         }
         return ceilingKey;
     }
+
+    public void deleteMin(){
+        if (root == null){
+            return;
+        }
+        Node temp = root;
+        Node tempFather = root.right;
+        while (temp != null){
+            if (temp.left == null){
+                if (temp == root){
+                    root = root.right;
+                    return;
+                }else{
+                    tempFather.left = temp.right;
+                    return;
+                }
+            }else{
+                tempFather = temp;
+                temp = temp.left;
+            }
+        }
+    }
+
+    public void deleteMax(){
+        if (root == null){
+            return;
+        }
+        Node temp = root;
+        Node tempFather = root.left;
+        while (temp != null){
+            if (temp.right == null){
+                if (temp == root){
+                    root = root.left;
+                    return;
+                }else{
+                    tempFather.right = temp.left;
+                    return;
+                }
+            }else{
+                tempFather = temp;
+                temp = temp.right;
+            }
+        }
+    }
+
+    public void delete
 }
 
 

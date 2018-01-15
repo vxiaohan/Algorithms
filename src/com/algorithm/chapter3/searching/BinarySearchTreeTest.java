@@ -63,4 +63,40 @@ public class BinarySearchTreeTest {
         assert binarySearchTree.ceiling("x").equals("y");
         assert binarySearchTree.ceiling("z") == null;
     }
+
+    @Test
+    public void testDeleteMin(){
+        String[] strings = {"m", "b", "d", "c", "z", "k", "g"};
+        Integer[] integers = {1, 20, 13, 42, 57, 16, 7};
+        BinarySearchTree binarySearchTree = initTestData(strings, integers);
+        binarySearchTree.deleteMin();
+        assert binarySearchTree.min().equals("c");
+        binarySearchTree.deleteMin();
+        assert binarySearchTree.min().equals("d");
+        String[] strings1 = {"a"};
+        Integer[] integers1 = {3};
+        BinarySearchTree binarySearchTree1 = initTestData(strings1, integers1);
+        binarySearchTree1.deleteMin();
+        assert binarySearchTree1.min() == null;
+        binarySearchTree1.deleteMin();
+        assert binarySearchTree1.min() == null;
+    }
+
+    @Test
+    public void testDeleteMax(){
+        String[] strings = {"m", "b", "d", "c", "z", "k", "g"};
+        Integer[] integers = {1, 20, 13, 42, 57, 16, 7};
+        BinarySearchTree binarySearchTree = initTestData(strings, integers);
+        binarySearchTree.deleteMax();
+        assert binarySearchTree.max().equals("m");
+        binarySearchTree.deleteMax();
+        assert binarySearchTree.max().equals("k");
+        String[] strings1 = {"a"};
+        Integer[] integers1 = {3};
+        BinarySearchTree binarySearchTree1 = initTestData(strings1, integers1);
+        binarySearchTree1.deleteMax();
+        assert binarySearchTree1.max() == null;
+        binarySearchTree1.deleteMax();
+        assert binarySearchTree1.max() == null;
+    }
 }
