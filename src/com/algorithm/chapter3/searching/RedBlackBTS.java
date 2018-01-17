@@ -1,5 +1,7 @@
 package com.algorithm.chapter3.searching;
 
+import java.util.Stack;
+
 /**
  * @author XiaoHan
  */
@@ -24,6 +26,9 @@ public class RedBlackBTS<Key extends Comparable<Key>, Value> {
             this.count = count;
             this.color = color;
         }
+        void flipColors(){
+            color = !color;
+        }
     }
 
     boolean isRed(Node node) {
@@ -39,9 +44,9 @@ public class RedBlackBTS<Key extends Comparable<Key>, Value> {
     }
 
     private int size(Node node) {
-        if (node == null) {
+        if (node == null){
             return 0;
-        } else {
+        }else {
             return node.count;
         }
     }
@@ -57,15 +62,40 @@ public class RedBlackBTS<Key extends Comparable<Key>, Value> {
         return rightNode;
     }
 
-    private Node rotateRight(Node rightNode){
+    private Node rotateRight(Node rightNode) {
         Node leftNode = rightNode.left;
         rightNode.left = leftNode.right;
         leftNode.right = rightNode;
         leftNode.color = rightNode.color;
         rightNode.color = RED;
         leftNode.count = rightNode.count;
-        rightNode.count = 1+size(rightNode.left) + size(rightNode.right);
+        rightNode.count = 1 + size(rightNode.left) + size(rightNode.right);
         return leftNode;
+    }
+
+    public void insert(Key key, Value value) {
+        if (root == null) {
+            root = new Node(key, value, null, null, 1, BLACK);
+            return;
+        }
+        Stack<Node> fathers = new Stack<>();
+        Node temp = root;
+        while (true) {
+            if (key.compareTo(temp.key) == 0) {
+                temp.value = value;
+                return;
+            } else if (key.compareTo(temp.key) < 0) {
+                if (temp.left == null){
+
+                }else {
+                    fathers.push(temp);
+                    temp = temp.left;
+                }
+            } else {
+                fathers.push(temp);
+                temp = temp.right;
+            }
+        }
     }
 
 }
